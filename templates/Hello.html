@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en, es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link>
+    <title> Hello Page </title>
+</head>
+<body>
+<main>
+    <article> <h1> What's going on?! </h1>  </article>
+    <!-- Creando estructuras de control -->
+    <!-- se debe utilizar llaves con un "%" de inicio y cierre -->
+    {% if User_Ip %}
+    <!-- Context.User_Ip Lo utilizo cuando en el py utilizo un diccionario para guardar las variables y no expando el diccionario con **  -->
+    <article> <p> Tu IP es la siguiente: {{ User_Ip }} </p> </article>
+    {% else %}
+    <article> <a href=" {{ url_for ('Making_A_Cookie') }} "> Ir al inicio </a> </article>
+    {% endif %}
+
+    <ul>
+        {% for Tareas in range (0, Len) %}
+        <li> {{ Tasks[Tareas] }} </li>
+        {% endfor %}
+    </ul>
+
+</main>
+</body>
+</html>
