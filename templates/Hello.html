@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en, es">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +7,21 @@
     <title> Hello Page </title>
 </head>
 <body>
-<main>
-    <article> <h1> What's going on?! </h1>  </article>
+<main> -->
+    
+    {% import 'macros.html' as macros %}
+
+    {% extends 'Base.html' %}
+
+    {% block title %}
+
+    {{ super()}}
+    Bienvenido
+
+    {% endblock %}
+
+    {% block content %}
+
     <!-- Creando estructuras de control -->
     <!-- se debe utilizar llaves con un "%" de inicio y cierre -->
     {% if User_Ip %}
@@ -19,11 +32,15 @@
     {% endif %}
 
     <ul>
-        {% for Tareas in range (0, Len) %}
-        <li> {{ Tasks[Tareas] }} </li>
+        {% for Tareas in Tasks %}
+        {{ macros.render_Tareas(Tareas) }}        <!--  <li> {{ Tareas }} </li> -->
         {% endfor %}
     </ul>
 
-</main>
+    {{ super()}}
+
+    {% endblock %}
+
+<!-- </main>
 </body>
-</html>
+</html> -->
