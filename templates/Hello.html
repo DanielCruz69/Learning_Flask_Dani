@@ -1,46 +1,54 @@
-<!-- <!DOCTYPE html>
-<html lang="en, es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link>
-    <title> Hello Page </title>
-</head>
-<body>
-<main> -->
-    
-    {% import 'macros.html' as macros %}
+{% extends 'Base.html' %}    
+{% import 'macros.html' as macros %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
-    {% extends 'Base.html' %}
+{% block title %}
 
-    {% block title %}
-
-    {{ super()}}
+    {{ super() }}
     Bienvenido
 
-    {% endblock %}
+{% endblock %}
 
-    {% block content %}
+{% block content %}
+
+    {% if Username_Login %}
+        <h1> Bienvenido {{ Username_Login }} </h1>
+    {% endif %}
 
     <!-- Creando estructuras de control -->
     <!-- se debe utilizar llaves con un "%" de inicio y cierre -->
+    
     {% if User_Ip %}
     <!-- Context.User_Ip Lo utilizo cuando en el py utilizo un diccionario para guardar las variables y no expando el diccionario con **  -->
+    
     <article> <p> Tu IP es la siguiente: {{ User_Ip }} </p> </article>
+    
     {% else %}
-    <article> <a href=" {{ url_for ('Making_A_Cookie') }} "> Ir al inicio </a> </article>
+    <article> <a href=" {{ url_for ('Making_A_Cookie') }} "> Ver tu IP </a> </article>
+    
     {% endif %}
 
     <ul>
         {% for Tareas in Tasks %}
-        {{ macros.render_Tareas(Tareas) }}        <!--  <li> {{ Tareas }} </li> -->
+            {{ macros.render_Tareas(Tareas) }}
         {% endfor %}
     </ul>
 
-    {{ super()}}
+    <!-- <section class="container">   Esto ya no lo hacemos, ya que, bootstrap cuenta con una "plantilla" predefinida para estos formularios. Esto que importamos "{% import 'bootstrap/wtf.html' as wtf %}" 
+        <form action=" {{ url_for('Say_Hello') }} " method="POST">
+            
+            {#
+            {{ LoginForm.Username }}
+            {{ LoginForm.Username.label }}
+            <br>
+            {{ LoginForm.Password }}
+            #}
+        
+        </form>
+    </section> -->
 
-    {% endblock %}
+    {{ wtf.quick_form(Login_Form) }}
 
-<!-- </main>
-</body>
-</html> -->
+    {{ super() }}
+
+{% endblock %}

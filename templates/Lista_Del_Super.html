@@ -1,0 +1,46 @@
+{% extends 'Base.html' %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block title %}
+        {{ super() }}
+        Lista de compras
+{% endblock %}
+
+{% block content %}
+
+    {{ super() }}
+
+    <h1 class="display-2 my-4 text-center text-secondary"> Lista de Compras </h1>
+
+    <section class="row">
+
+    <ol>
+        <h3 class="display-6 mx-3 my-3"> <li class="text-primary"> Frutas </li> </h3>
+        <ul class="col-4">
+            <li> <a href="#" class="text-secondary"> 4 Manzanas. </a> </li>
+            <li> <a href="#" class="text-secondary"> 3 Peras. </a> </li>
+            <li> <a href="#" class="text-secondary"> 1 racimo de uvas. </a> </li>
+            <li> <a href="#" class="text-secondary"> 6 Limones. </a> </li>
+        </ul>
+        <h3 class="display-6 mx-3 my-3"> <li class="text-primary"> Verduras </li> </h3>
+        <ul class="col-4">
+            <li> <a href="#" class="text-secondary"> 2 cebollas largas. </a> </li>
+            <li> <a href="#" class="text-secondary"> 5 tomates. </a> </li>
+            <li> <a href="#" class="text-secondary"> 2 aguacates. </a> </li>
+            <li> <a href="#" class="text-secondary"> 3 lechugas. </a> </li>
+        </ul>
+        <h3 class="display-6 mx-3 my-3"> <li class="text-primary"> Bebidas </li> </h3>
+        <ul class="col-4">
+            <li> <a href="#" class="text-secondary"> Pepsi. </a> </li>
+            <li> <a href="#" class="text-secondary"> Mr.Tea. </a> </li>
+            <li> <a href="#" class="text-secondary"> H2O. </a> </li>
+            <li> <a href="#" class="text-secondary"> Hit Lulo. </a> </li>
+        </ul>
+    </ol>
+
+    </section>
+
+{% endblock %}

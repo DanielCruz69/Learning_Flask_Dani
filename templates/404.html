@@ -1,0 +1,11 @@
+{% extends 'Base.html' %}
+
+{% block title %}
+    {{ super()}}
+    404
+{% endblock %}
+
+{% block content %}
+<h1> Uppps, parace que la URL que buscas no existe, verifica el link e intenta nuevamente. </h1>
+{{ Error }}
+{% endblock %}
